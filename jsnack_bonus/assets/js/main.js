@@ -19,7 +19,7 @@ const oddNumberUlElement = document.createElement('ul');
 
 for (let i = 0; i < 6; i++) {
     const input = Number(prompt(`Inserisci il numero ${i + 1}:`));
-    
+
     if (!isNaN(input)) {
         numbers.push(input);
 
@@ -35,35 +35,40 @@ console.log(numbers, oddNumbers);
 //Inserisco gli elementi nella DOM
 bodyElement.append(resultElement);
 
-resultElement.append("I numeri inseriti sono: ");
-resultElement.append(numbersElement);
-
-resultElement.append("I numeri dispari inseriti sono: ");
-resultElement.append(oddNumbersElement);
-
 numbersElement.append(numberUlElement);
 oddNumbersElement.append(oddNumberUlElement);
 
-//Stampo in pagina tutti i numeri inseriti
-for (let i = 0; i < numbers.length; i++) {
-    const liElement = document.createElement('li');
-    numberUlElement.append(liElement);
-    liElement.append(numbers[i]);
-}
-
-if (oddNumbers.length > 0) {
-
-    //Stampo in pagina tutti i numeri dispari inseriti
-    for (let i = 0; i < oddNumbers.length; i++) {
-
+if (numbers.length > 0) {
+    //Stampo in pagina tutti i numeri inseriti
+    resultElement.append("I numeri inseriti sono: ");
+    resultElement.append(numbersElement);
+    for (let i = 0; i < numbers.length; i++) {
         const liElement = document.createElement('li');
-        oddNumberUlElement.append(liElement);
-        liElement.append(oddNumbers[i]);
-
+        numberUlElement.append(liElement);
+        liElement.append(numbers[i]);
     }
 
+    resultElement.append("I numeri dispari inseriti sono: ");
+    resultElement.append(oddNumbersElement);
+    if (oddNumbers.length > 0) {
+
+        //Stampo in pagina tutti i numeri dispari inseriti
+        for (let i = 0; i < oddNumbers.length; i++) {
+
+            const liElement = document.createElement('li');
+            oddNumberUlElement.append(liElement);
+            liElement.append(oddNumbers[i]);
+
+        }
+
+    } else {
+        //Se non sono stati inseriti numeri dispari lo scrivo a video
+        const liElement = document.createElement('li');
+        oddNumberUlElement.append(liElement);
+        liElement.append('Non sono stati inseriti numeri dispari!');
+    }
 } else {
     const liElement = document.createElement('li');
-    oddNumberUlElement.append(liElement);
-    liElement.append('Non sono stati inseriti numeri dispari!');
+    numberUlElement.append(liElement);
+    liElement.append("Non sono stati inseriti numeri!");
 }
