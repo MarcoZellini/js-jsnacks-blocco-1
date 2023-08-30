@@ -1,5 +1,5 @@
 /* 
-    Snack 1:
+    Snack 1
         L’utente inserisce due numeri in successione, con due prompt.
         Il software stampa il maggiore.
 */
@@ -7,7 +7,7 @@
 /* Definisco le mie variabili */
 
 //Recupero i dati di cui ho bisogno
-const firstNumber = Number(prompt('Inserisci il primo numero:'));
+/* const firstNumber = Number(prompt('Inserisci il primo numero:'));
 const secondNumber = Number(prompt('Inserisci il secondo numero:'));
 const bodyElement = document.querySelector('body');
 const resultElement = document.createElement('div');
@@ -41,3 +41,34 @@ if (firstNumber > secondNumber) {
     console.log('Dati inseriti non corretti!');
     resultElement.append('Dati inseriti non corretti!');
 }
+ */
+/* 
+    Da fare con WHILE tutti I prossimi snacks
+    Snack 1
+        L’utente inserisce due numeri in successione, con due prompt.
+        Il software stampa il maggiore.
+*/
+
+
+let i = 0;
+let max = 0;
+
+while (i < 2) {
+    console.log(i);
+    const input = Number(prompt(`Inserisci il numero ${i+1}:`));
+    console.log(input);
+
+    if(!isNaN(input)) {
+
+        console.log(i === 0 || input > max);
+        if (i === 0 || input > max){
+            max = input;
+        }
+
+        i++;
+    } else {
+        console.log('Valore non inserito correttamente');
+    }
+}
+console.log(max + " e' il numero piu' grande inserito");
+
